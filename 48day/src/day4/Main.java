@@ -22,22 +22,14 @@ public class Main {
             int m = sc.nextInt();
             int n = sc.nextInt();
             StringBuffer ret = new StringBuffer();
-            if (n <= 9) {
-                int key = 1;
-                while (m >= 0) {
-                    ret += (m % n) * key;
-                    m /= n;
-                    key *= 10;
-                }
-            } else {
-                int key = 1;
-                while (m >= 0) {
-                    int cur = m % n;
-                    ret += cur * key;
-                    m /= n;
-                    key *= 10;
-                }
+            char[] arr = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+            while (m > 0) {
+                int key = m % n;
+                ret.insert(0, key > 9 ? arr[key - 9] : key);
+                m /= n;
             }
+
+            System.out.println(ret);
         }
     }
 
