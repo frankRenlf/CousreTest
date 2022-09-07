@@ -1,5 +1,7 @@
 package day4;
 
+import java.util.Scanner;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -14,6 +16,50 @@ package day4;
  */
 public class Main {
 
-    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int m = sc.nextInt();
+            int n = sc.nextInt();
+            StringBuffer ret = new StringBuffer();
+            if (n <= 9) {
+                int key = 1;
+                while (m >= 0) {
+                    ret += (m % n) * key;
+                    m /= n;
+                    key *= 10;
+                }
+            } else {
+                int key = 1;
+                while (m >= 0) {
+                    int cur = m % n;
+                    ret += cur * key;
+                    m /= n;
+                    key *= 10;
+                }
+            }
+        }
+    }
+
+    public static void main1(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int[] arr = new int[4];
+            for (int i = 0; i < 4; i++) {
+                arr[i] = sc.nextInt();
+            }
+            int[] ret = new int[3];
+            ret[0] = (arr[0] + arr[2]) / 2;
+            ret[1] = (arr[2] - arr[0]) / 2;
+            ret[2] = (arr[3] - arr[1]) / 2;
+            if (arr[3] - ret[2] != ret[1]) {
+                System.out.println("No");
+            } else {
+                for (int x : ret) {
+                    System.out.print(x + " ");
+                }
+            }
+        }
+    }
 
 }
