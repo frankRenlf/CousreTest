@@ -22,13 +22,21 @@ public class Main {
             int m = sc.nextInt();
             int n = sc.nextInt();
             StringBuffer ret = new StringBuffer();
-            char[] arr = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+            String[] arr = new String[]{"A", "B", "C", "D", "E", "F"};
+            String pn = "";
+            if (m < 0) {
+                pn = "-";
+                m = -m;
+            } else if (m == 0) {
+                System.out.println(0);
+                continue;
+            }
             while (m > 0) {
                 int key = m % n;
-                ret.insert(0, key > 9 ? arr[key - 9] : key);
+                ret.insert(0, key >= 10 ? arr[key - 10] : key);
                 m /= n;
             }
-
+            ret.insert(0, pn);
             System.out.println(ret);
         }
     }
