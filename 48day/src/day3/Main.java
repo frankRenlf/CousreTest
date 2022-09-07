@@ -14,9 +14,18 @@ import java.util.Scanner;
  * @github : https://github.com/frankRenlf
  * @Description :
  */
+//public class ret {
+//
+//}
 public class Main {
 
     public static void main(String[] args) {
+        String s1 = "hello";
+        String s2 = "hel" + new String("lo");
+        System.out.println(s1 == s2);
+    }
+
+    public static void main1(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             String s = sc.nextLine();
@@ -40,7 +49,7 @@ public class Main {
         }
     }
 
-    public int MoreThanHalfNum_Solution(int[] array) {
+    public int MoreThanHalfNum_Solution(int[] array) throws Exception {
         int count = 0;
         int key = 0;
         for (int x : array) {
@@ -49,6 +58,7 @@ public class Main {
             }
             count += x == key ? 1 : -1;
         }
+//        if(key>10)throw new Exception("123");
         return key;
     }
 
