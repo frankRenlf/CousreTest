@@ -23,20 +23,21 @@ public class Main {
             for (int i = 0; i < n; i++) {
                 nums[i] = sc.nextInt();
             }
-            int len = nums.length;
-            int pre = nums[0];
-            int max = nums[0];
-            for (int i = 1; i < len; i++) {
-                pre = Math.max(pre + nums[i], nums[i]);
-                max = Math.max(max, pre);
+            long[] dp = new long[n];
+            dp[0] = nums[0];
+            long max = dp[0];
+            for (int i = 1; i < n; i++) {
+                dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
+                max = Math.max(dp[i], max);
             }
             System.out.println(max);
-//            long[] dp = new long[n];
-//            dp[0] = nums[0];
-//            for (int i = 1; i < n; i++) {
-//                dp[i] = Math.max(nums[i], dp[i - 1] + nums[i]);
+//            int len = nums.length;
+//            int pre = nums[0];
+//            int max = nums[0];
+//            for (int i = 1; i < len; i++) {
+//                pre = Math.max(pre + nums[i], nums[i]);
+//                max = Math.max(max, pre);
 //            }
-//            System.out.println(dp[n - 1]);
         }
     }
 
