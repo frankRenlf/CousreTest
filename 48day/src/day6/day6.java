@@ -1,6 +1,7 @@
 package day6;
 
 import javax.management.ObjectName;
+import java.util.Scanner;
 
 /**
  * Created with IntelliJ IDEA.
@@ -42,6 +43,16 @@ public class day6 {
     static day6 d6 = new day6();
 
     public static void main(String[] args) {
-        System.out.println(d6.StrToInt("-1234"));
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int m = sc.nextInt(), n = sc.nextInt();
+            int evenICount = (n / 4) * 2 + (Math.min(n % 4, 2));
+            int oddICount = ((n - 2) / 4) * 2 + (Math.min((n - 2) % 4, 2));
+            int ans = m / 4 * (evenICount + oddICount) * 2;
+            if(m % 4 > 0) ans += evenICount;
+            if(m % 4 > 1) ans += evenICount;
+            if(m % 4 > 2) ans += oddICount;
+            System.out.println(ans);
+        }
     }
 }
