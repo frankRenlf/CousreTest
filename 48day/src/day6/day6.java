@@ -1,5 +1,7 @@
 package day6;
 
+import javax.management.ObjectName;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -15,20 +17,24 @@ package day6;
 public class day6 {
 
     public int StrToInt(String str) {
+        if (str == null || str.length() == 0) return -1;
         char[] arr = str.toCharArray();
         int key = 1;
+        int i = 0;
+        if (arr[0] == '-') {
+            key = -1;
+            i = 1;
+        } else if (arr[0] == '+') {
+            i = 1;
+        }
         int ret = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (i == 0 && arr[i] == '-') key = -1;
-            else if (i == 0&&arr[i] == '+') {
-            } else {
-                return -1;
-            }
+        for (; i < arr.length; i++) {
             if (!Character.isDigit(arr[i])) {
-                return -1;
+                return 0;
             }
             ret *= 10;
-            ret += arr[i];
+            ret += arr[i] - '0';
+//            if (ret >= Integer.MAX_VALUE) return Integer.MAX_VALUE;
         }
         return ret * key;
     }
