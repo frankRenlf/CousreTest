@@ -1,5 +1,8 @@
 package Day8;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,38 +18,57 @@ import java.util.Scanner;
  * @Description :
  */
 public class Main {
+    public static boolean lexicographically(String[] str) {
+        boolean ret = true;
+        for (int i = 0; i < str.length - 1; i++) {
+            if (str[i].compareTo(str[i + 1]) > 0) {
+                return false;
+            }
+        }
+        return ret;
+    }
+
+    public static boolean length(String[] str) {
+        boolean ret = true;
+        for (int i = 0; i < str.length - 1; i++) {
+            if (str[i].length() > str[i + 1].length()) {
+                return false;
+            }
+        }
+        return ret;
+    }
+
+    public static void main1(String[] args) {
+        Scanner in = new Scanner(System.in);
+        while (in.hasNext()) {
+            int n = in.nextInt();
+            //因为输入的n后面还有一个回车，in.nextLine()会读取为一行；
+            in.nextLine();
+            String[] str = new String[n];
+            for (int i = 0; i < n; i++) {
+                str[i] = in.nextLine();
+            }
+            if (length(str) && lexicographically(str)) {
+                System.out.println("both");
+            } else if (length(str)) {
+                System.out.println("lengths");
+            } else if (lexicographically(str)) {
+                System.out.println("lexicographically");
+            } else {
+                System.out.println("none");
+            }
+        }
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
-            int n = sc.nextInt();
-            String[] subs = new String[n];
-            boolean lex = true, len = true;
-            int min = Integer.MAX_VALUE;
-            for (int i = 0; i < n; i++) {
-                subs[i] = sc.nextLine();
-                min = Math.min(min, subs[i].length());
-                if (i > 0) {
-                    if (subs[i].length() < subs[i - 1].length()) len = false;
-                }
-            }
-//            for (int i = 0; i < min; i++) {
-//                for (int j = 1; j < n; j++) {
-//                    if (subs[j - 1].charAt(i) > subs[j].charAt(i)) {
-//                        lex = false;
-//                        break;
-//                    }
-//                }
-//            }
-//            if (lex && len) System.out.println("both");
-//            else if (lex) {
-//                System.out.println("lexicographically");
-//            } else if (len) {
-//                System.out.println("length");
-//            } else {
-//                System.out.println("none");
-//            }
+            int a = sc.nextInt(), b = sc.nextInt();
+            System.out.println((a / cal(a, b)) * b);
         }
     }
 
+    private static int cal(int a, int b) {
+        return b == 0 ? a : cal(b, a % b);
+    }
 }
