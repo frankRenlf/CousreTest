@@ -60,7 +60,7 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             int a = sc.nextInt(), b = sc.nextInt();
@@ -70,5 +70,12 @@ public class Main {
 
     private static int cal(int a, int b) {
         return b == 0 ? a : cal(b, a % b);
+    }
+
+    public static void main(String[] args) {
+        double a = 3.0;
+        int y = 5;
+        a /= --y;
+        System.out.println(a);
     }
 }
