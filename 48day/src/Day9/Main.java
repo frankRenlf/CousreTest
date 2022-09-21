@@ -24,10 +24,10 @@ class Person{
 }
 
 class child extends Person{
-    String n = "123";
-
-    public child(String n) {
-//        super(p);
+    String n = "abc";
+    public child(String p, String n) {
+        super(p);
+        n.toUpperCase();
         this.n = n;
     }
 }
