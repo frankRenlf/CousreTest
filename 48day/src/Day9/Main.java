@@ -14,6 +14,24 @@ import java.util.Scanner;
  * @github : https://github.com/frankRenlf
  * @Description :
  */
+
+class Person{
+    String p = "111";
+
+    public Person(String p) {
+        this.p = p;
+    }
+}
+
+class child extends Person{
+    String n = "123";
+
+    public child(String n) {
+//        super(p);
+        this.n = n;
+    }
+}
+
 public class Main {
 
     public static void main(String[] args) {
