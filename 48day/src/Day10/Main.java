@@ -1,5 +1,10 @@
 package Day10;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
+import java.util.Locale;
+import java.util.Scanner;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -13,6 +18,75 @@ package Day10;
  * @Description :
  */
 public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            String s = sc.nextLine();
+            int pl, pa, pn, ps, pr;
+            int ca = 0, cn = 0, cs = 0;
+            int len = s.length();
+            pl = len <= 4 ? 5 : (len <= 7 ? 10 : 25);
+            int small = 0, big = 0;
+            for (int i = 0; i < len; i++) {
+                char c = s.charAt(i);
+                if (Character.isDigit(c)) {
+                    cn++;
+                } else if (Character.isAlphabetic(c)) {
+                    ca++;
+                    if (c >= 65 && c <= 90)
+                        big++;
+                    else if (c >= 97 && c <= 122)
+                        small++;
+                } else {
+                    cs++;
+                }
+            }
+            if (ca != 0) {
+                pa = big > 0 && small > 0 ? 20 : 10;
+            } else {
+                pa = 0;
+            }
+            if (cn != 0) {
+                pn = cn == 1 ? 10 : 20;
+            } else {
+                pn = 0;
+            }
+            if (cs != 0) {
+                ps = cs == 1 ? 10 : 25;
+            } else {
+                ps = 0;
+            }
+            if (pa == 20 && pn > 0 && ps > 0) {
+                pr = 5;
+            } else if (pa > 0 && pn > 0 && ps > 0) {
+                pr = 3;
+            } else if (pa > 0 && pn > 0) {
+                pr = 2;
+            } else {
+                pr = 0;
+            }
+            int sum = pl + pa + pn + ps + pr;
+            String RET;
+            if (sum >= 90) {
+                RET = "VERY_SECURE";
+            } else if (sum >= 80) {
+                RET = "SECURE";
+            } else if (sum >= 70) {
+                RET = "VERY_STRONG";
+            } else if (sum >= 60) {
+                RET = "STRONG";
+            } else if (sum >= 50) {
+                RET = "AVERAGE";
+            } else if (sum >= 25) {
+                RET = "WEAK";
+            } else {
+                RET = "VERY_WEAK";
+            }
+            System.out.println(RET);
+        }
+    }
 
     public boolean checkWon(int[][] board) {
         // write code here
