@@ -20,12 +20,12 @@ import java.util.Scanner;
 //
 //}
 public abstract class Main {
-    public void test(int a){
-
-    }
-    public int test(int a){
-
-    }
+//    public void test(int a){
+//
+//    }
+//    public int test(int a){
+//
+//    }
     public int a =1;
     public void method(){
 
@@ -33,9 +33,12 @@ public abstract class Main {
     public abstract int method(int a);
 
     public static void main(String[] args) {
-        String s1 = "hello";
-        String s2 = "hel" +"lo";
-        System.out.println(s1==s2);
+//        String s1 = "hello";
+//        String s2 = "hel" +"lo";
+//        System.out.println(s1==s2);
+        byte b1 = 127;
+        b1++;
+        System.out.println(b1);
     }
 
     public static void main1(String[] args) {
