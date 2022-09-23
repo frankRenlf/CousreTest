@@ -21,7 +21,8 @@ public class Main {
         map.put("name",null);
         map.put("name",1);
         System.out.println(map.size());
-        CallableStatement
+//        CallableStatement;
+                WeakHashMap
     }
 
 
