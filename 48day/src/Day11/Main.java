@@ -13,7 +13,7 @@ package Day11;
  * @Description :
  */
 public class Main {
-    
+
     public int getLCA(int a, int b) {
         //每次都让较大的节点先找父节点,
         // 直到 a和b相遇!就是公共节点!
