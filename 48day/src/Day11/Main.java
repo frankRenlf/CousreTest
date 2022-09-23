@@ -1,6 +1,7 @@
 package Day11;
 
-import java.util.Scanner;
+import java.sql.CallableStatement;
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,9 +16,16 @@ import java.util.Scanner;
  * @Description :
  */
 public class Main {
-
-
     public static void main(String[] args) {
+        java.util.HashMap map = new HashMap();
+        map.put("name",null);
+        map.put("name",1);
+        System.out.println(map.size());
+        CallableStatement
+    }
+
+
+    public static void main2(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             int n = sc.nextInt();
@@ -34,6 +42,7 @@ public class Main {
             }
             System.out.println(maxLen);
         }
+
     }
 
     public int getLCA(int a, int b) {
