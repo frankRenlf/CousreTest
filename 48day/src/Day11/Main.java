@@ -1,5 +1,7 @@
 package Day11;
 
+import java.util.Scanner;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -13,6 +15,26 @@ package Day11;
  * @Description :
  */
 public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int n = sc.nextInt();
+            int pre = 0;
+            int maxLen = 0;
+            while (n != 0) {
+                if ((n & 1) == 1) {
+                    maxLen = Math.max(maxLen, pre + 1);
+                    pre++;
+                } else {
+                    pre = 0;
+                }
+                n >>>= 1;
+            }
+            System.out.println(maxLen);
+        }
+    }
 
     public int getLCA(int a, int b) {
         //每次都让较大的节点先找父节点,
