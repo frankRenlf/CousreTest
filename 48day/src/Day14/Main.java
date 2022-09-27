@@ -48,6 +48,7 @@ public class Main {
             while (i < num - 1 && check[i] == check[i + 1]) {//题目要求：相同数字的球被视为一样的情况
                 i++;
             }
+//            System.out.println(i + ":" + count);
         }
         System.out.println(start + ":" + count);
         return count;
