@@ -19,7 +19,20 @@ public class Main {
 
     public int findMinimum(int n, int[] left, int[] right) {
         // write code here
-        
+        int sl = 0, cl = Integer.MAX_VALUE;
+        int sr = 0, cr = Integer.MAX_VALUE;
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            if (left[i] * right[i] == 0) {
+                sum += left[i] + right[i];
+            } else {
+                sl += left[i];
+                sr += right[i];
+                cl = Math.min(cl, left[i]);
+                cr = Math.min(cr, right[i]);
+            }
+        }
+        return sum + Math.min(sl - cl, sr - cr) + 2;
     }
 
     public static void main(String[] args) {
