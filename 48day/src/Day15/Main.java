@@ -17,6 +17,11 @@ import java.util.Scanner;
  */
 public class Main {
 
+    public int findMinimum(int n, int[] left, int[] right) {
+        // write code here
+        
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
