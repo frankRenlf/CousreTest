@@ -20,7 +20,7 @@ public class Main {
         // write code here
         int[] dp = new int[number + 1];
         Arrays.fill(dp, 1);
-        for (int i = 0; i <= number; i++) {
+        for (int i = 1; i <= number; i++) {
             for (int j = 1; j <= number; j++) {
                 if (i + j <= number) {
                     dp[i + j] += dp[i];
@@ -30,6 +30,11 @@ public class Main {
             }
         }
         return dp[number];
+    }
+    static Main main = new Main();
+
+    public static void main(String[] args) {
+        System.out.println(main.jumpFloorII(3));
     }
 
 }
