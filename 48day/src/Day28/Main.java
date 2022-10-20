@@ -19,9 +19,17 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()){
+        while (sc.hasNext()) {
             int n = sc.nextInt();
-            
+            int sum = 0;
+            int acquire = 0;
+            if (n==0){
+                break;
+            }
+            long startNum=(long)Math.pow(5,n)-4;//一开始的桃子总数
+            long oldMonkey=(long) Math.pow(4,n)+n-4;//最后老猴子能分到的桃子树
+            System.out.print(startNum+" "+oldMonkey);
+            System.out.println();
         }
     }
 
