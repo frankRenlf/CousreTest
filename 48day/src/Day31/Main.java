@@ -77,31 +77,27 @@ public class Main {
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        StringBuilder result = new StringBuilder();
         while (sc.hasNext()) {
-            int n = sc.nextInt();//输入多组数据
-            if (isPrimer(n)) {
-                System.out.println(1);
-                continue;
-            }
-            int cnt = 0;
-            for (int i = 2; i <= Math.sqrt(n); i++) {
-                if (n % i == 0) {
-                    while (n % i == 0) {
-                        n /= i;
-                    }
-                    cnt++;
+            int num = sc.nextInt();
+            int count = 0;
+            result.append(num).append(" ").append("=");
+            int j = num;
+            for (int i = 2;i<=Math.sqrt(j);i++) {
+                while (num % i == 0) {
+                    result.append(" ").append(i).append(" ").append("*");
+                    num = num/i;
+                    count++;
                 }
+                if (num == 1) break;
             }
-            if (n != 1) cnt++;
-            System.out.println(cnt);
+            if (num != 1) result.append(" ").append(num);
+            if (result.charAt(result.length()-1) == '*') {
+                result.deleteCharAt(result.length()-1);
+                result.deleteCharAt(result.length()-1);
+            }
+            System.out.println(result);
+            result.setLength(0);
         }
     }
-
-    public static boolean isPrimer(int n) {//判断是不是质数
-        for (int i = 2; i <= Math.sqrt(n); i++) {
-            if (n % i == 0) return false;
-        }
-        return true;
-    }
-
 }
