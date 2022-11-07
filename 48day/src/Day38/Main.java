@@ -17,10 +17,45 @@ import java.util.Scanner;
  */
 public class Main {
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int n = sc.nextInt();
+            int m = sc.nextInt();
+            int k = sc.nextInt();
+            int[][] arr = new int[n][m];
+            String tmp = sc.nextLine();
+            for (int i = 0; i < k; i++) {
+                int x = sc.nextInt(), y = sc.nextInt();
+                arr[x - 1][y - 1] = 1;
+            }
+            int[][] ret = new int[n][m];
+            for (int i = 0; i < n; i++) {
+                ret[i][0] = 1;
+            }
+            for (int i = 0; i < m; i++) {
+                ret[0][i] = 1;
+            }
+            double div = 0.0;
+            for (int i = 1; i < n; i++) {
+                for (int j = 1; j < m; j++) {
+                    ret[i][j] = ret[i - 1][j] + ret[i][j - 1];
+                    if (arr[i - 1][j] == 1) {
+                        div += ret[i - 1][j];
+                    }
+                    if (arr[i][j - 1] == 1) {
+                        div += ret[i - 1][j];
+                    }
+                }
+            }
+            if (arr[n - 1][m - 1] == 1 || arr[0][0] == 1) div = ret[n - 1][m - 1];
+            System.out.printf("%.2f%n", div / ret[n - 1][m - 1]);
+        }
+    }
 
     static int ret = 0;
 
-    public static void main(String[] args) {
+    public static void main1(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
             int m = sc.nextInt();
