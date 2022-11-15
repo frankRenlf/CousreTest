@@ -1,3 +1,5 @@
+package Day43;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,7 +16,7 @@ import java.util.Scanner;
  * @github : https://github.com/frankRenlf
  * @Description :
  */
-public class Day43 {
+public class Main {
 
     static int n;
     static int m;
